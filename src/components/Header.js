@@ -5,6 +5,7 @@ import {Route, Link, Switch} from 'react-router-dom'
 import Home from './Home'
 import Messages from './Messages'
 import Protected from './Protected'
+import Trash from '../assets/trash.png'
 
 
 class Header extends Component {
@@ -46,7 +47,7 @@ class Header extends Component {
     return(
         <div className='fullContainer'>
             <Navbar style={{background: '#4FBC73', width:'100%'}} light expand="md">
-                <Link style={{color: 'white', fontSize:'20px', textDecoration:'none'}} to='/home'>Trash2Treasure</Link>
+                <Link style={{color: 'white', fontSize:'20px', textDecoration:'none'}} to='/home'><img src={Trash} style={{width:'100%'}}/></Link>
                 <Link style={{paddingRight: '20px'}}className='ml-auto' to='/messages'>
                     <FaComments
                         color='white'
