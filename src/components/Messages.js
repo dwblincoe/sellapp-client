@@ -26,6 +26,7 @@ export default class Messages extends Component{
                 t.userId === mess.userId && t.itemId === mess.itemId
             )))
             this.setState({messages: newArr})
+            console.log(res)
         })
         console.log(this.state.messages)
         this.sortArr()
