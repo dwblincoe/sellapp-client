@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import APIURL from '../helpers/environment'
 
 export default class ItemCard extends Component{
     constructor(){
@@ -25,7 +26,7 @@ export default class ItemCard extends Component{
 
     deleteItem = (e) => {
         let token = localStorage.getItem('token')
-        fetch(`http://localhost:3001/item/delete/${e.target.id}`, {
+        fetch(`${APIURL}/item/delete/${e.target.id}`, {
             method:'DELETE',
             headers:{
                 'Content-Type': 'application/json',
@@ -42,7 +43,7 @@ export default class ItemCard extends Component{
 
         let token = localStorage.getItem('token')
 
-        fetch(`http://localhost:3001/item/update/${e.target.id}`, {
+        fetch(`${APIURL}/item/update/${e.target.id}`, {
             method: 'PUT',
             headers:{
                 'Content-Type': 'application/json',
@@ -63,7 +64,7 @@ export default class ItemCard extends Component{
     render(){
         return(
             <div>
-                <img src={'http://localhost:3001/' + this.props.item.itemImg} alt='item'/>
+                <img src={`${APIURL}/` + this.props.item.itemImg} alt='item'/>
                     {this.state.showNormal && <div className='normalView' >
                         <p><strong>{this.props.item.itemName}</strong></p>
                         <p>${this.props.item.itemPrice}</p>

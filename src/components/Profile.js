@@ -3,6 +3,7 @@ import Protected from './Protected'
 import {Link, Route} from 'react-router-dom'
 import CreateItem from './CreateItem'
 import UserItems from './UserItems'
+import APIURL from '../helpers/environment'
 
 export default class Profile extends Component{
     constructor(props){
@@ -46,7 +47,7 @@ export default class Profile extends Component{
         
     getUserItems = () => {
     let token = localStorage.getItem('token')
-        fetch('http://localhost:3001/item/useritems', {
+        fetch(`${APIURL}/item/useritems`, {
             method:'GET',
             headers:{
                 'Content-Type': 'application/json',

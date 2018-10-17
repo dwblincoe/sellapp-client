@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import APIURL from '../../helpers/environment'
 
 export default class LogIn extends Component{
     constructor(){
@@ -17,7 +18,7 @@ export default class LogIn extends Component{
 
     handleSubmit = (e) => {
         e.preventDefault()
-        fetch('http://localhost:3001/user/login', {
+        fetch(`${APIURL}/user/login`, {
             method: 'post',
             headers:{
                 'Content-Type': 'application/json'

@@ -1,4 +1,5 @@
-import React, {Component} from 'react'     
+import React, {Component} from 'react'
+import APIURL from '../../helpers/environment'     
 
 export default class SignUp extends Component{
     constructor(){
@@ -23,7 +24,7 @@ export default class SignUp extends Component{
         localStorage.setItem('name', name)
         e.preventDefault()
         if(this.state.pass === this.state.confirmPass){
-            fetch('http://localhost:3001/user/signup',{
+            fetch(`${APIURL}/user/signup`,{
                 method:'post',
                 headers:{
                     'Content-Type': 'application/json'

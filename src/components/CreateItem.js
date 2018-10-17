@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import APIURL from '../helpers/environment'
 
 export default class CreateItem extends Component{
     constructor(){
@@ -33,7 +34,7 @@ export default class CreateItem extends Component{
         formData.append("itemDescription", this.state.itemDescription)
         formData.append("itemImg", this.state.itemImg)
         let token = localStorage.getItem('token')
-        fetch('http://localhost:3001/item/additem',{
+        fetch(`${APIURL}/item/additem`,{
             method: 'POST',
             headers: {
                 'Authorization': token

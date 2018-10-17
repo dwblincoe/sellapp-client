@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
 import MessageCard from './MessageCard'
+import APIURL from '../helpers/environment'
 
 export default class Messages extends Component{
     constructor(){
@@ -13,7 +13,7 @@ export default class Messages extends Component{
     
     getMessages = () => {
         let token = localStorage.getItem('token')
-        fetch('http://localhost:3001/messages', {
+        fetch(`${APIURL}/messages`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {FaWindowClose} from 'react-icons/fa'
+import APIURL from '../helpers/environment'
 
 export default class Item extends Component{
     constructor(){
@@ -22,7 +23,7 @@ export default class Item extends Component{
         let itemId = this.props.itemId
         let token = localStorage.getItem('token')
 
-        fetch(`http://localhost:3001/item/${itemId}`, {
+        fetch(`${APIURL}/item/${itemId}`, {
             method:'GET',
             headers:{
                 'Content-Type': 'application/json',
@@ -51,7 +52,7 @@ export default class Item extends Component{
     handleSubmit = (e) => {
         e.preventDefault()
         let token = localStorage.getItem('token')
-        fetch('http://localhost:3001/messages/create', {
+        fetch(`${APIURL}/messages/create`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -75,7 +76,7 @@ export default class Item extends Component{
                 />
                 </button>
                 <div className='oneItem'>
-                    <img src={'http://localhost:3001/' + this.state.itemImg} alt='item'/>
+                    <img src={`${APIURL}/` + this.state.itemImg} alt='item'/>
                     <div className='itemInfo'>
                         {/* <div>{this.state.}</div> */}
                         <h1>{this.state.itemName}</h1>

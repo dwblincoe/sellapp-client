@@ -1,5 +1,6 @@
 import React, {Component}  from 'react'
 import Item from './Item'
+import APIURL from '../helpers/environment'
 
 export default class Home extends Component{
     constructor(){
@@ -18,7 +19,7 @@ export default class Home extends Component{
     }
 
     allItems = () => {
-        fetch('http://localhost:3001/item', {
+        fetch(`${APIURL}/item`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -39,7 +40,7 @@ export default class Home extends Component{
                     {this.state.items.map(item => {
                         return(
                             <li key={item.id} className='itemContainer'>
-                            <img src={'http://localhost:3001/' + item.itemImg} alt='item'/>
+                            <img src={`${APIURL}/` + item.itemImg} alt='item'/>
                             <button id={item.id} onClick={this.toggleShow}>More Info!</button>
                             </li>
                         )

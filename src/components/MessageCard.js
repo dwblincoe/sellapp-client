@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import ShowMessages from './ShowMessages'
 import { FaTrash} from 'react-icons/fa';
+import APIURL from '../helpers/environment'
 
 export default class MessageCard extends Component{
     constructor(){
@@ -21,7 +22,7 @@ export default class MessageCard extends Component{
     getSender = () => {
         let getOne = this.props.message.senderId
         let token = localStorage.getItem('token')
-        fetch(`http://localhost:3001/user/${getOne}`, {
+        fetch(`${APIURL}/user/${getOne}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -39,7 +40,7 @@ export default class MessageCard extends Component{
 
     getImage = () => {
         let token = localStorage.getItem('token')
-        fetch(`http://localhost:3001/item/${this.props.message.itemId}`, {
+        fetch(`${APIURL}/item/${this.props.message.itemId}`, {
             method: 'GET',
             headers:{
                 'Content-Type': 'application/json',
@@ -78,7 +79,7 @@ export default class MessageCard extends Component{
     handleSubmit = (e) => {
         e.preventDefault()
         let token = localStorage.getItem('token')
-        fetch('http://localhost:3001/messages/create', {
+        fetch(`${APIURL}/messages/create`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -96,7 +97,7 @@ export default class MessageCard extends Component{
 
     getMessageChain = (e) => {
         let token = localStorage.getItem('token')
-        fetch(`http://localhost:3001/messages/${e.target.id}/${e.target.name}`, {
+        fetch(`${APIURL}/messages/${e.target.id}/${e.target.name}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -111,7 +112,7 @@ export default class MessageCard extends Component{
 
     deleteMessageChain = (e) => {
         let token = localStorage.getItem('token')
-        fetch(`http://localhost:3001/messages/${e.target.id}/${e.target.name}`, {
+        fetch(`${APIURL}/messages/${e.target.id}/${e.target.name}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -126,7 +127,7 @@ export default class MessageCard extends Component{
             <div>
                 <div className='messageContainer'>
                     <div className='messagePic'>
-                        <img src={`http://localhost:3001/${this.state.itemImg}`}/>
+                        <img src={`${APIURL}/${this.state.itemImg}`}/>
                     </div>
                     {this.state.regShow && 
                     <div className='messageSender'>
