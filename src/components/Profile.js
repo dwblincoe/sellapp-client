@@ -46,6 +46,7 @@ export default class Profile extends Component{
     }
         
     getUserItems = () => {
+    localStorage.clear()
     let token = localStorage.getItem('token')
         fetch(`${APIURL}/item/useritems`, {
             method:'GET',

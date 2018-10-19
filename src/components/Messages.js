@@ -28,6 +28,7 @@ export default class Messages extends Component{
             this.setState({messages: newArr})
             console.log(res)
         })
+        .catch(err => console.log(err))
         console.log(this.state.messages)
         this.sortArr()
     }

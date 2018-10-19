@@ -7,7 +7,7 @@ const Foot = styled.footer`
     background:#4FBC73;
     text-align:center;
     bottom:0;
-    position:relative
+    position:fixed
 `
 const Copy = styled.p`
     color:white;

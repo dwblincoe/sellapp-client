@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import {injectGlobal} from 'styled-components'
 import {BrowserRouter as Router} from 'react-router-dom'
 import Header from './components/Header'
-import Footer from './components/Footer'
+// import Footer from './components/Footer'
 
 
 injectGlobal`
@@ -21,7 +21,7 @@ class App extends Component {
         <Router>
           <Header/>
         </Router>
-        <Footer/>
+        {/* <Footer/> */}
       </div>
     );
   }
