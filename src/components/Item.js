@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {FaWindowClose} from 'react-icons/fa'
 import APIURL from '../helpers/environment'
+import { get } from 'https';
 
 export default class Item extends Component{
     constructor(){
@@ -50,6 +51,7 @@ export default class Item extends Component{
     }
     
     handleSubmit = (e) => {
+        // console.log(localStorage.getItem('token'))
         e.preventDefault()
         let token = localStorage.getItem('token')
         fetch(`${APIURL}/messages/create`, {
@@ -65,6 +67,9 @@ export default class Item extends Component{
             })
         })
         .then(res => res.json())
+        .catch(err => console.log(err))
+
+        this.props.toggleShow()
     }
 
     render(){
@@ -84,7 +89,7 @@ export default class Item extends Component{
                         <p>{this.state.itemDescription}</p>
                         <form onSubmit={this.handleSubmit}>
                             <textarea name='message' onChange={this.handleChange} placeholder='Send owner a message'/>
-                            <button onClick={this.props.toggleShow}>Send Message</button>
+                            <button>Send Message</button>
                         </form>
                     </div>
                 </div>

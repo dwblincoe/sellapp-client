@@ -51,7 +51,6 @@ export default class Home extends Component{
     }
 
     toggleShow = (e) => {
-        console.log(e.target.id)
         if(this.state.showAllItems === true){
             this.setState({
                 showAllItems:false,

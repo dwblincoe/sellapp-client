@@ -46,7 +46,6 @@ export default class Profile extends Component{
     }
         
     getUserItems = () => {
-    localStorage.clear()
     let token = localStorage.getItem('token')
         fetch(`${APIURL}/item/useritems`, {
             method:'GET',
@@ -57,7 +56,6 @@ export default class Profile extends Component{
         })
             .then(response => response.json())
             .then(items => {
-                console.log(typeof(profileItems))
                 this.setState({ profileItems: items })
                 console.log(this.state.profileItems)
             })
